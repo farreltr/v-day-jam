@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SceneManager : MonoBehaviour {
 
-    int numberRooms = 2;
+    int numberRooms = 4;
     int x;
     GameObject Scene;
     int currentSceneNumber;
