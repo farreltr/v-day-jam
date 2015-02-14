@@ -9,6 +9,12 @@ public class PlayerAction : MonoBehaviour
 		private List<string> phrases = new List<string> (3);
 		private Room currentRoom;
 		private SceneManager sceneManager;
+		private TextRenderer textRenderer;
+
+		void Stsrt ()
+		{
+		
+		}
 
 		public void Update ()
 		{
@@ -52,6 +58,6 @@ public class PlayerAction : MonoBehaviour
 
 		public void LoadInteraction ()
 		{
-				
+				textRenderer.Render (phrases);
 		}
 }
