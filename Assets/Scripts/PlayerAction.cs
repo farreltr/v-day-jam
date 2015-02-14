@@ -52,6 +52,6 @@ public class PlayerAction : MonoBehaviour
 
 		public void LoadInteraction ()
 		{
-
+				
 		}
 }
