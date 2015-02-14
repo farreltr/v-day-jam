@@ -41,11 +41,7 @@ public class PlayerAction : MonoBehaviour
 		
 		}
 
-		public void AddPhrase (string phrase)
-		{
-				phrases.Add (phrase);
-		}
-
+	
 		public void ImproveMood (CharacterBehaviour character, int moodLevel)
 		{
 				character.IncreaseHappiness (moodLevel);

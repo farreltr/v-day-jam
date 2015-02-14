@@ -9,16 +9,33 @@ public class SceneManager : MonoBehaviour {
     GameObject Scene;
     int currentSceneNumber;
     public Dictionary<string, Room> playerRoomManager;
+    Camera currentCam;
+    Camera previousCam;
+   
 	// Use this for initialization
 
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
-	void Start () {
 
-        Dictionary<string, Room> playerRoomManager = new Dictionary<string, Room>();
-        Debug.Log(Application.loadedLevel);
+
+   void SetCamera()
+   {
+    previousCam = currentCam;
+    currentCam = GameObject.Find("Scene " + currentSceneNumber).GetComponentInChildren<Camera>();
+    currentCam.tag = "MainCamera";
+
+    if (currentCam != previousCam)  
+    {
+          previousCam.tag = "Disabled";
+    }
+    }
+
+   
+	void Start () {
+         playerRoomManager = new Dictionary<string, Room>();
+               Debug.Log(Application.loadedLevel);
 
         for (x = 0; x <= numberRooms; x++)
         {
@@ -37,18 +54,26 @@ public class SceneManager : MonoBehaviour {
 
  
 
+   
 	public Room GetRoomFor(string name){
+        Room room = Room.DINING_ROOM;
 		if(playerRoomManager.ContainsKey(name)){
-			Room room = playerRoomManager.TryGetValue(name, Room);
-			return room;
+
+			playerRoomManager.TryGetValue(name,out room);
+			
 		}
+        return room;
 	}
 
-
+    
 	
 	// Update is called once per frame
 	void Update () {
         currentSceneNumber = Application.loadedLevel;
         Debug.Log("Current Scene Number: " + currentSceneNumber);
+
+        SetCamera();
+
+
 	}
 }

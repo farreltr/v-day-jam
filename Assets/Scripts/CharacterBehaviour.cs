@@ -70,8 +70,8 @@ public class CharacterBehaviour : MonoBehaviour
 						return Mood.SAD;
 				} else if (mood >= 30 && mood < 70) {
 						return Mood.NEUTRAL;
-				} else if (mood >= 70 && mood <= 100) {
-
 				}
+                return Mood.HAPPY;
+
 		}
 }
