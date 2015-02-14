@@ -20,19 +20,8 @@ public class SceneManager : MonoBehaviour {
     }
 
 
-   void SetCamera()
-   {
-    previousCam = currentCam;
-    currentCam = GameObject.Find("Scene " + currentSceneNumber).GetComponentInChildren<Camera>();
-    currentCam.tag = "MainCamera";
-
-    if (currentCam != previousCam)  
-    {
-          previousCam.tag = "Disabled";
-    }
-    }
-
    
+    
 	void Start () {
          playerRoomManager = new Dictionary<string, Room>();
                Debug.Log(Application.loadedLevel);
@@ -71,8 +60,6 @@ public class SceneManager : MonoBehaviour {
 	void Update () {
         currentSceneNumber = Application.loadedLevel;
         Debug.Log("Current Scene Number: " + currentSceneNumber);
-
-        SetCamera();
 
 
 	}
